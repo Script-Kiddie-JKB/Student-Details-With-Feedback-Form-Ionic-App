@@ -1,17 +1,95 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Student Form
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button type="submit" (click)="authService.SignOut()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="medium"> Form </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button type="submit" (click)="authService.SignOut()">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+ <ion-list lines="full">
+    <form [formGroup]="studentForm" (ngSubmit)="formSubmit()">
+      <ion-item>
+        <ion-label color="primary"  position="floating">Full Name :</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" position="floating">Email ID : </ion-label>
+        <ion-input formControlName="email" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" position="floating">Mobile No. :</ion-label>
+        <ion-input formControlName="mobile" type="text" required>
+        </ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label color="primary" position="floating">Course :</ion-label>
+        <ion-input formControlName="class" type="text" required>
+        </ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label color="primary" position="floating">PRN :</ion-label>
+        <ion-input formControlName="uid" type="text" required>
+        </ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label color="primary"position="floating">Stream</ion-label>
+        <ion-input formControlName="course" type="text" required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label color="primary" position="floating">School Name :</ion-label>
+        <ion-input formControlName="school" type="text" required>
+        </ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label color="primary" position="floating">Graduation :</ion-label>
+        <ion-input formControlName="graduation" type="text" required>
+        </ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label color="primary"position="floating">Extra curicular :</ion-label>
+        <ion-input formControlName="extra" type="text" required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-row>
+        <ion-col>
+
+       <br><br><ion-button type="submit" color="primary" shape="full" expand="block">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+  </ion-card>
 </ion-content>

@@ -1,17 +1,40 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Students
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="medium"> Form Details  </ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-item *ngFor="let student of Studentss"   class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{student.name}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{student.mobile}}
+        </p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <ion-button color="success" expand="block" size="small" [routerLink]="['/view-student/', student.$key]">
+           View </ion-button>
+           <ion-button color="success" expand="block" size="small"  [routerLink]="['/edit-student/', student.$key]">
+            Edit </ion-button>
+
+            <ion-button color="success" expand="block" size="small"  (click)="deleteStudent(student.$key)">
+              Delete </ion-button>
+
+      </div>
+    </ion-item>
+
+</ion-card>
 </ion-content>
